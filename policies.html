@@ -39,12 +39,13 @@
                     <h2 class="text-2xl font-light mb-4 text-[#222222F2]">Policy</h2>
 
                     <div class="w-full bg-[#2222221a] h-2 rounded-full mb-4">
-                        <div class="h-full bg-[#386c87] rounded-full transition-all duration-2000 ease-in-out"
-                            style="width: 100%;">
+                        <div id="progressBar"
+                            class="h-full bg-[#386c87] rounded-full transition-all duration-500 ease-in-out"
+                            style="width: 0%;">
                         </div>
                     </div>
 
-                    <p class="text-[#2229]">Expired Policy</p>
+                    <p id="statusText" class="text-[#2229]">Loading...</p>
                 </div>
 
                 <div class="bg-[#e8e8e8] p-5 rounded-lg mt-6">
@@ -76,7 +77,7 @@
                                 <span class="text-sm text-[#2229]">Date</span>
                             </div>
 
-                            <p class="text-[#222222e6]">12 Jan 2026</p>
+                            <p id="startDateDisplay" class="text-[#222222e6]">-</p>
 
                             <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -88,7 +89,7 @@
                                 <span class="text-sm text-[#2229]">Time (local UK time)</span>
                             </div>
 
-                            <p class="text-[#222222e6]">20:00</p>
+                            <p id="startTimeDisplay" class="text-[#222222e6]">-</p>
                         </div>
                     </div>
 
@@ -110,7 +111,7 @@
                                 <span class="text-sm text-[#2229]">Date</span>
                             </div>
 
-                            <p class="text-[#222222e6]">26 Jan 2026</p>
+                            <p id="endDateDisplay" class="text-[#222222e6]">-</p>
 
                             <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -122,7 +123,7 @@
                                 <span class="text-sm text-[#2229]">Time (local UK time)</span>
                             </div>
 
-                            <p class="text-[#222222e6]">20:00</p>
+                            <p id="endTimeDisplay" class="text-[#222222e6]">-</p>
                         </div>
                     </div>
                 </div>
@@ -501,6 +502,88 @@
             </p>
         </div>
     </footer>
+
+
+
+
+ <script>
+  // Set your start and end dates/times here in UTC timezone (UK time in winter)
+  const startDateTime = new Date('2026-01-12T20:00:00+00:00');
+  const endDateTime = new Date('2026-01-26T20:00:00+00:00');
+
+  // Format date/time explicitly for UK timezone display
+  function formatDateUK(d) {
+    return d.toLocaleDateString('en-GB', {
+      timeZone: 'Europe/London',
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
+  }
+
+  function formatTimeUK(d) {
+    return d.toLocaleTimeString('en-GB', {
+      timeZone: 'Europe/London',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+  }
+
+  // Update UI with formatted dates and times
+  document.getElementById('startDateDisplay').textContent = formatDateUK(startDateTime);
+  document.getElementById('startTimeDisplay').textContent = formatTimeUK(startDateTime);
+  document.getElementById('endDateDisplay').textContent = formatDateUK(endDateTime);
+  document.getElementById('endTimeDisplay').textContent = formatTimeUK(endDateTime);
+
+  const progressBar = document.getElementById('progressBar');
+  const statusText = document.getElementById('statusText');
+
+function updateProgress() {
+  const now = new Date();
+
+  const nowUtc = Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+    now.getUTCHours(),
+    now.getUTCMinutes(),
+    now.getUTCSeconds()
+  );
+
+  const startUtc = startDateTime.getTime();
+  const endUtc = endDateTime.getTime();
+
+  console.log('Now UTC:', new Date(nowUtc).toISOString());
+  console.log('Start UTC:', new Date(startUtc).toISOString());
+  console.log('End UTC:', new Date(endUtc).toISOString());
+
+  if (nowUtc < startUtc) {
+    progressBar.style.width = '0%';
+    statusText.textContent = 'Policy not started yet';
+    statusText.classList.remove('text-red-500');
+    return;
+  }
+
+  if (nowUtc >= endUtc) {
+    progressBar.style.width = '100%';
+    statusText.textContent = 'Policy expired';
+    statusText.classList.add('text-red-500');
+    return;
+  }
+
+  const totalDuration = endUtc - startUtc;
+  const elapsed = nowUtc - startUtc;
+  const progressPercent = Math.floor((elapsed / totalDuration) * 100);
+
+  progressBar.style.width = progressPercent + '%';
+  statusText.textContent = `Policy active: ${progressPercent}% completed`;
+  statusText.classList.remove('text-red-500');
+}
+
+  updateProgress(); // Initial call
+  setInterval(updateProgress, 1000); // Update every second
+</script>
 
 </body>
 
